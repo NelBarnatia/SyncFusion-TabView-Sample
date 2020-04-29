@@ -29,7 +29,7 @@ namespace Test
 
                 Label label = new Label
                 {
-                    Text = "MAMA MO" + stato,
+                    Text = "MAMA MO " + stato,
                     TextColor = Color.Black,
                     FontSize = 30,
                     HorizontalOptions = LayoutOptions.CenterAndExpand,
