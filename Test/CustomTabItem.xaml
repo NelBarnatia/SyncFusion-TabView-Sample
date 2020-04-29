@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView x:Class="Test.CustomTabItem"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Grid x:Name="TabItem"
+          Margin="1,5"
+          BackgroundColor="Transparent"
+          HorizontalOptions="CenterAndExpand"
+          VerticalOptions="CenterAndExpand">
+        <Grid.HeightRequest>
+            <OnPlatform x:TypeArguments="x:Double">
+                <On Platform="iOS">60</On>
+                <On Platform="Android">64</On>
+                <On Platform="UWP">64</On>
+            </OnPlatform>
+        </Grid.HeightRequest>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Label x:Name="title"
+               FontSize="12"
+               HorizontalOptions="CenterAndExpand"
+               TextColor="White"
+               VerticalOptions="CenterAndExpand" />
+    </Grid>
+</ContentView>

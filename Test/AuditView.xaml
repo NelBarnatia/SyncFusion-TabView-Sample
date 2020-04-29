@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ViewCell x:Class="Test.AuditView"
+          xmlns="http://xamarin.com/schemas/2014/forms"
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          xmlns:local="clr-namespace:Test">
+
+    <local:CustomFrame Padding="5,5,5,5" HasShadow="false">
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Margin="0,0,0,5"
+                       FontAttributes="Bold"
+                       FontSize="12"
+                       LineBreakMode="WordWrap"
+                       Text="{Binding Name}"
+                       TextColor="Black" />
+
+                <Label Grid.Row="1"
+                       Margin="0,0,0,15"
+                       FontAttributes="Bold"
+                       FontSize="10"
+                       LineBreakMode="WordWrap"
+                       Text="{Binding Number}"
+                       TextColor="Black" />
+            </Grid>
+        </Grid>
+
+    </local:CustomFrame>
+
+</ViewCell>

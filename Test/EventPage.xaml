@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:local="clr-namespace:Test"
+             xmlns:tabView="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms"
+             x:Class="Test.EventPage">
+    <ContentPage.BindingContext>
+        <local:ContactsViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid>
+            <tabView:SfTabView >
+                <tabView:SfTabItem Title="Call">
+                    <tabView:SfTabItem.Content>
+                        <Grid  x:Name="AllContactsGrid">
+                            <ListView x:Name="ContactListView" 
+                                ItemsSource="{Binding ContactList}"
+                                BackgroundColor="Beige" RowHeight="100" ItemTapped="ContactListView_ItemTapped">
+                                <ListView.BindingContext>
+                                    <local:ContactsViewModel />
+                                </ListView.BindingContext>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout Orientation="Vertical">
+                                                <Label 
+                                                    Text="{Binding Name}"
+                                                    FontSize="24" 
+                                                    TextColor="Blue" />
+                                                <Label 
+                                                    Text="{Binding Number}" 
+                                                    FontSize="20" 
+                                                    TextColor="LightSlateGray" />
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Grid>
+                    </tabView:SfTabItem.Content>
+                </tabView:SfTabItem>
+                <tabView:SfTabItem Title="Favorites">
+                    <tabView:SfTabItem.Content>
+                        <Grid BackgroundColor="Green" x:Name="FavoritesGrid">
+                            <ListView x:Name="ContactListView1" 
+                                ItemsSource="{Binding ContactList}"
+                                BackgroundColor="Beige" RowHeight="100" ItemTapped="ContactListView_ItemTapped_1">
+                                <ListView.BindingContext>
+                                    <local:ContactsViewModel />
+                                </ListView.BindingContext>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout Orientation="Vertical">
+                                                <Label 
+                                                    Text="{Binding Name}"
+                                                    FontSize="24" 
+                                                    TextColor="Blue" />
+                                                <Label 
+                                                    Text="{Binding Number}" 
+                                                    FontSize="20" 
+                                                    TextColor="LightSlateGray" />
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Grid>
+                    </tabView:SfTabItem.Content>
+                </tabView:SfTabItem>
+                <tabView:SfTabItem Title="Contacts">
+                    <tabView:SfTabItem.Content>
+                        <Grid BackgroundColor="Blue" x:Name="ContactsGrid">
+                            <ListView x:Name="ContactListView2" 
+                                ItemsSource="{Binding ContactList}"
+                                BackgroundColor="Beige" RowHeight="100" ItemTapped="ContactListView_ItemTapped_2">
+                                <ListView.BindingContext>
+                                    <local:ContactsViewModel />
+                                </ListView.BindingContext>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout Orientation="Vertical">
+                                                <Label 
+                                                    Text="{Binding Name}"
+                                                    FontSize="24" 
+                                                    TextColor="Blue" />
+                                                <Label 
+                                                    Text="{Binding Number}" 
+                                                    FontSize="20" 
+                                                    TextColor="LightSlateGray" />
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Grid>
+                    </tabView:SfTabItem.Content>
+                </tabView:SfTabItem>
+            </tabView:SfTabView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

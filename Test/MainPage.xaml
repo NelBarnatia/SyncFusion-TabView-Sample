@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Test.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Test"
+    xmlns:navigationdrawer="clr-namespace:Syncfusion.SfNavigationDrawer.XForms;assembly=Syncfusion.SfNavigationDrawer.XForms"
+    xmlns:popuplayout="clr-namespace:Syncfusion.XForms.PopupLayout;assembly=Syncfusion.SfPopupLayout.XForms"
+    xmlns:tabView="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms">
+
+    <ContentPage.BindingContext>
+        <local:ContactsViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:SelectedItemEventArgsToSelectedItemConverter x:Key="SelectedItemConverter" />
+            <!--<Style TargetType="tabview:SfTabView" x:Key="TabItemStyle">
+                <Setter Property="Background" Value="Red"/> Style="{StaticResource TabItemStyle}"
+                <Setter Property="SelectedForeground" Value="Green" />
+            </Style>-->
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <popuplayout:SfPopupLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+        <popuplayout:SfPopupLayout.Content HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+            <navigationdrawer:SfNavigationDrawer
+                DrawerFooterHeight="0"
+                DrawerHeaderHeight="200"
+                DrawerWidth="300"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+
+                <navigationdrawer:SfNavigationDrawer.DrawerHeaderView>
+                    <Label
+                        HorizontalOptions="FillAndExpand"
+                        Text="Drawer Header"
+                        VerticalOptions="FillAndExpand" />
+                </navigationdrawer:SfNavigationDrawer.DrawerHeaderView>
+
+                <navigationdrawer:SfNavigationDrawer.DrawerContentView>
+                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Label
+                            HorizontalOptions="FillAndExpand"
+                            Text="DRASWER CONTENT"
+                            VerticalOptions="FillAndExpand" />
+                    </Grid>
+                </navigationdrawer:SfNavigationDrawer.DrawerContentView>
+
+                <navigationdrawer:SfNavigationDrawer.ContentView>
+
+                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <tabView:SfTabView
+                            x:Name="tabView"
+                            Grid.Row="1"
+                            Margin="0"
+                            DisplayMode="NoHeader"
+                            EnableSwiping="True"
+                            HorizontalOptions="FillAndExpand"
+                            SelectedIndex="0"
+                            SelectionChanged="TabView_SelectionChanged"
+                            TabHeaderBackgroundColor="Lime"
+                            TabHeaderPosition="Top"
+                            VerticalOptions="FillAndExpand">
+
+                            <tabView:SfTabView.TabHeight>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="iOS">60</On>
+                                    <On Platform="Android">64</On>
+                                    <On Platform="UWP">64</On>
+                                </OnPlatform>
+                            </tabView:SfTabView.TabHeight>
+
+                            <!--<tabView:SfTabView.OverflowButtonSettings>
+                                <tabView:OverflowButtonSettings TitleFontColor="White" />
+                            </tabView:SfTabView.OverflowButtonSettings>-->
+
+                            <tabView:SfTabView.SelectionIndicatorSettings>
+                                <tabView:SelectionIndicatorSettings
+                                    Position="Fill"
+                                    StrokeThickness="5"
+                                    Color="Red" />
+                            </tabView:SfTabView.SelectionIndicatorSettings>
+                        </tabView:SfTabView>
+                    </Grid>
+
+                </navigationdrawer:SfNavigationDrawer.ContentView>
+
+            </navigationdrawer:SfNavigationDrawer>
+
+        </popuplayout:SfPopupLayout.Content>
+
+    </popuplayout:SfPopupLayout>
+
+</ContentPage>
